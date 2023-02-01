@@ -1,16 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* PS5 */
+//https://github.com/bradtraversy/50projects50days/blob/master/split-landing-page/ps.jpg?raw=true
+/* Xbox */
+/* https://raw.githubusercontent.com/bradtraversy/50projects50days/master/split-landing-page/xbox.jpg */
+
+:root {
+    --left-bg-color: rgba(87, 84, 236, 0.7);
+    --right-bg-color: rgba(43, 43, 43, 0.8);
+}
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+}
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* PS5 */
+.split.left {
+    left: 0;
+    background: url('https://github.com/bradtraversy/50projects50days/blob/master/split-landing-page/ps.jpg?raw=true');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.left::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--left-bg-color);
+}
+
+/* Xbox */
+.split.right {
+    right: 0;
+    background: url('https://raw.githubusercontent.com/bradtraversy/50projects50days/master/split-landing-page/xbox.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.right::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--right-bg-color);
 }
