@@ -87,6 +87,7 @@ a {
 
 .form-control input:focus, .form-control input:valid {
     outline: 0;
+    border-bottom-color: lightblue;
 }
 
 .form-control label {
@@ -95,6 +96,18 @@ a {
     left: 0;
 }
 
+.form-control label span {
+    display: inline-block;
+    font-size: 16px;
+    min-width: 4px;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.625, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+    color: lightblue;
+    transform: translateY(-32px);
+}
 
 
 
