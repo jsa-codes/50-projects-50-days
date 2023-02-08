@@ -8,6 +8,13 @@ textarea.addEventListener('keyup', (e) => {
     // When the keyup event happens, Create a function called 'createTags'
     // e.target.value = Whatever we type in the textarea
     createTags(e.target.value)
+
+    if (e.key === 'Enter') {
+        setTimeout(() => {
+            e.target.value = ' '
+        }, 10)
+        randomSelect()
+    }
 })
 
 function createTags(input) {
@@ -16,19 +23,60 @@ function createTags(input) {
         // .filter(tag => tag.trim() !== '')
         // .map(tag => tag.trim());
         // console.log(tags);
-        
+
         // Alternate version of the code above:
         .split(',')
         .map((tag) => tag.trim())
         .filter((tag) => tag !== '')
 
-        // Sets the default state of the tags to be an empty string, removing the initial choices we created earlier
-        tagsEl.innerHTML = ''
+    // Sets the default state of the tags to be an empty string, removing the initial choices we created earlier
+    tagsEl.innerHTML = ''
 
-        tags.forEach(tag => {
-            const tagEl = document.createElement('span')
-            tagEl.classList.add('tag')
-            tagEl.innerText = tag
-            tagsEl.appendChild(tagEl)
-        })
-} 
+    tags.forEach(tag => {
+        const tagEl = document.createElement('span')
+        tagEl.classList.add('tag')
+        tagEl.innerText = tag
+        tagsEl.appendChild(tagEl)
+    })
+}
+
+function randomSelect() {
+    const times = 30
+
+    const interval = setInterval(() => {
+        const randomTag = pickRandomTag()
+
+        highlightTag(randomTag)
+
+        setTimeout(() => {
+            removeHighlightTag(randomTag)
+        }, 100)
+    }, 100)
+
+    setTimeout(() => {
+        clearInterval(interval)
+
+        setTimeout(() => {
+            const randomTag = pickRandomTag()
+            highlightTag(randomTag)
+        }, 100)
+    }, times * 100)
+}
+
+function pickRandomTag() {
+    const tags = document.querySelectorAll('.tag')
+    return tags[Math.floor(Math.random() * tags.length)]
+}
+
+function highlightTag(tag) {
+    tag.classList.add('highlight')
+}
+
+function removeHighlightTag(tag) {
+    tag.classList.remove('highlight')
+}
+
+
+
+
+
