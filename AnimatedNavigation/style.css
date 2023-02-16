@@ -1,16 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* 
+Concepts introduced:
+#linear-gradient */
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    background-color: #eafbff;
+    background-image: linear-gradient(
+        to bottom, 
+        #eafbff 0%, 
+        #eafbff 50%, 
+        #5290f9 50%, 
+        #5290f9 100%
+        );
+    font-family: 'Muli', sans-serif;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    overflow: hidden;
     margin: 0;
 }
+
+nav {
+    background-color: #fff;
+    padding: 20px;
+    width: 80px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border-radius: 3px;
+    /*  X-offset, Y-offset, Blur and Color (black) w/transparency*/
+    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.3);
+    /* Adding the transition to the width + duration of the transition + type of effect */
+    transition: width 0.6s linear;
+}
+
+/* If the nav has the active class on it */
+
+nav.active {
+    width: 350px;
+}
+
+/* Display Flex Defaults to Row */
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    transition: width 0.6s linear;
+}
+
+/* When the nav tag has a class of "active" we want the width of the ul to be 100%*/
+nav.active ul {
+    width: 100%;
+}
+
+/* We want the li to rotate */
+nav ul li {
+    transform: rotateY(0deg);
+    opacity: 0;
+    transition: transform 0.6s linear, opacity 0.6s linear;
+}
+
+/* Target the li when the nav is "active" 
+ - Set the opacity to 1 so that we can see it.
+*/
+nav.active ul li {
+    opacity: 1;
+    transform: rotateY(360deg);
+}
+
+nav ul a {
+    position: relative;
+    color: #000;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+
+
+
+
+
+
