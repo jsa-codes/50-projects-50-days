@@ -4,7 +4,6 @@
 /* Secondary Color #373b69  */
 
 
-
 * {
     box-sizing: border-box;
 }
@@ -23,7 +22,7 @@ header {
 }
 
 
-
+/* Search bar */
 .search {
     background-color: transparent;
     border: 2px solid #22254b; 
@@ -42,6 +41,7 @@ header {
     background: #22254b; 
 }
 
+/* Area where all the cards will be shown */
 main {
     display: flex;
     flex-wrap: wrap;
@@ -75,6 +75,7 @@ main {
     margin-top: 0;
 }
 
+/* Rating */
 .movie-info span {
     background-color: #22254b; //primary
     padding: .35rem 1rem;
@@ -82,6 +83,8 @@ main {
     font-weight: bold;
 }
 
+
+/* For changing the color depending on the rating */
 .movie-info span.green {
     color: lightgreen;
 }
@@ -94,6 +97,8 @@ main {
     color: red;
 }
 
+
+/* Movie description */
 .overview {
     background-color: #fff;
     padding: 2rem;
