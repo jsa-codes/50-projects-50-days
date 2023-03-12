@@ -52,13 +52,16 @@ function showMovies(movieList) {
         // using destructuring to get values out of the movie object
         const { title, poster_path, vote_average, overview } = movie
 
+        // Create a div element in the document
         const movieEl = document.createElement('div')
+        // Add a class of 'movie to the div
         movieEl.classList.add('movie')
+        // Set the innerHTML of that div with a class of 'movie'
         movieEl.innerHTML = `
             <img src="${IMG_PATH + poster_path}" alt="${title}">
             <div class="movie-info">
                 <h3>${title}</h3>
-                <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+                <span class="${getClassByRating(vote_average)}">${vote_average}</span>
             </div>
             <div class="overview">
                 <h3>Overview</h3>
@@ -69,7 +72,7 @@ function showMovies(movieList) {
     })
 }
 
-function getClassByRate(vote) {
+function getClassByRating(vote) {
     if (vote >= 8) {
         return 'green'
     } else if (vote >= 5) {
