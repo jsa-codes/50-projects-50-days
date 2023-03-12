@@ -101,16 +101,19 @@ main {
 /* Movie description */
 .overview {
     background-color: #fff;
+    /* Padding for the text description */
     padding: 2rem;
     position: absolute;
     left: 0;
     bottom: 0;
     right: 0;
     max-height: 100%;
+    /* Push the text down, off the screen, so that it cannot be seen */
     transform: translateY(101%);
     transition: transform 0.3s ease-in;
 }
 
+/* When we hover over movie, which is the entire box, then we want the overview to change its transform position to its original position, which is for it to be fully visible */
 .movie:hover .overview {
     transform: translateY(0);
 }
